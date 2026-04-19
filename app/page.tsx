@@ -161,9 +161,34 @@ function Stars({ count = 5 }: { count?: number }) {
   );
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Feynman AI",
+  operatingSystem: "iOS",
+  applicationCategory: "EducationApplication",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  url: "https://getfeynman.app",
+  description:
+    "Turn PDFs, YouTube videos, audio recordings, and photos into smart notes, quizzes, and flashcards. Master any topic with the Feynman Technique.",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    ratingCount: "1",
+  },
+};
+
 export default function Home() {
   return (
     <div className="bg-[#FAFAFA] dark:bg-[#09090B]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Navbar */}
       <header className="sticky top-0 z-50 bg-[#FAFAFA]/80 dark:bg-[#09090B]/80 backdrop-blur-md border-b border-gray-200/60 dark:border-gray-700/60">
         <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">

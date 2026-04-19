@@ -10,18 +10,51 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Feynman AI. Study Smarter, Not Harder",
+  metadataBase: new URL("https://getfeynman.app"),
+  title: "Feynman AI — Study Smarter, Not Harder",
   description:
     "Turn PDFs, YouTube videos, audio recordings, and photos into smart notes, quizzes, and flashcards. Master any topic with the Feynman Technique.",
+  keywords: [
+    "AI study app",
+    "Feynman technique",
+    "smart notes",
+    "flashcards",
+    "quizzes",
+    "PDF summarizer",
+    "YouTube notes",
+    "spaced repetition",
+    "study tool",
+    "AI learning",
+  ],
+  authors: [{ name: "Feynman AI" }],
+  robots: { index: true, follow: true },
   icons: {
     icon: "/logo.jpg",
     apple: "/logo.jpg",
   },
   openGraph: {
-    title: "Feynman AI. Study Smarter, Not Harder",
+    title: "Feynman AI — Study Smarter, Not Harder",
+    description:
+      "Turn PDFs, YouTube videos, audio recordings, and photos into smart notes, quizzes, and flashcards. Master any topic with the Feynman Technique.",
+    url: "https://getfeynman.app",
+    siteName: "Feynman AI",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/logo.jpg",
+        width: 512,
+        height: 512,
+        alt: "Feynman AI — AI-Powered Study Tool",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Feynman AI — Study Smarter, Not Harder",
     description:
       "Turn PDFs, YouTube videos, audio recordings, and photos into smart notes, quizzes, and flashcards.",
-    type: "website",
+    images: ["/logo.jpg"],
   },
 };
 
