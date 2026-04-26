@@ -2,14 +2,49 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ── Design Tokens ─────────────────────────────── */
 :root {
-  --accent: #0088FE;
-  --accent-light: #EFF6FF;
+  --color-paper:      #F4EFE6;
+  --color-paper2:     #EDE6D8;
+  --color-ink:        #1F2A37;
+  --color-ink2:       #3A4654;
+  --color-muted:      #7A7468;
+  --color-line:       #DDD3BF;
+  --color-line2:      #C9BEA6;
+  --color-gold:       #B8893A;
+  --color-gold-deep:  #8E6824;
+  --color-gold-tint:  #F2E6CA;
+  --color-dark-bg:    #1F2A37;
+
+  --bg:               #F4EFE6;
+  --bg-alt:           #EDE6D8;
+  --text-primary:     #1F2A37;
+  --text-secondary:   #3A4654;
+  --text-muted:       #7A7468;
+  --border:           #DDD3BF;
+  --border-strong:    #C9BEA6;
+  --accent:           #B8893A;
+  --accent-deep:      #8E6824;
+  --accent-tint:      #F2E6CA;
+}
+
+.dark {
+  --bg:               #1F2A37;
+  --bg-alt:           #26333F;
+  --text-primary:     #F4EFE6;
+  --text-secondary:   #C9BEA6;
+  --text-muted:       #7A7468;
+  --border:           #2E3D4C;
+  --border-strong:    #3A4E5F;
+  --accent:           #B8893A;
+  --accent-deep:      #D4A050;
+  --accent-tint:      #2A2218;
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans:  var(--font-inter);
+  --font-serif: var(--font-fraunces);
+  --font-mono:  ui-monospace, "Cascadia Code", monospace;
 }
 
 html {
@@ -17,17 +52,15 @@ html {
 }
 
 body {
-  background: #FAFAFA;
-  color: #111827;
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-.dark body {
-  background: #09090B;
-  color: #F9FAFB;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-fraunces), Georgia, serif;
 }
-
 
 details summary::-webkit-details-marker {
   display: none;

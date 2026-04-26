@@ -5,25 +5,25 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://getfeynman.app",
+      url: "https://getauthorai.app",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: "https://getfeynman.app/privacy",
+      url: "https://getauthorai.app/privacy",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: "https://getfeynman.app/terms",
+      url: "https://getauthorai.app/terms",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: "https://getfeynman.app/support",
+      url: "https://getauthorai.app/support",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.5,

@@ -1,151 +1,154 @@
 import Image from "next/image";
 import { ThemeToggle } from "./components/ThemeToggle";
 
-const APP_STORE_URL = "https://apps.apple.com/us/app/feynman-ai-study-notes-maker/id6738310899";
+const APP_STORE_URL = "https://apps.apple.com/us/app/id6737721884";
 
-const inputSources = [
+const writingTools = [
   {
-    bg: "bg-red-50 dark:bg-red-900/20",
+    bg: "bg-[var(--accent-tint)] dark:bg-[#2A2218]",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-red-500" stroke="currentColor" strokeWidth={1.8}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[var(--accent)]" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
       </svg>
     ),
-    title: "PDF & Documents",
-    description: "Upload textbooks, lecture slides, or any document. Get structured summaries in seconds.",
+    title: "AI Writing Assistant",
+    description: "Stuck on a scene? The AI suggests continuations, rewrites awkward passages, and adapts to your voice the more you write.",
   },
   {
-    bg: "bg-rose-50 dark:bg-rose-900/20",
+    bg: "bg-amber-50 dark:bg-amber-900/20",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-rose-500" stroke="currentColor" strokeWidth={1.8}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-amber-600" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
       </svg>
     ),
-    title: "YouTube Videos",
-    description: "Paste any YouTube link. Feynman AI transcribes and condenses the lecture for you.",
+    title: "Character Creator",
+    description: "Give your characters depth that lasts 400 pages. Build rich backstories, track motivations, relationships, and arcs. All searchable from anywhere in your draft.",
   },
   {
-    bg: "bg-blue-50 dark:bg-blue-900/20",
+    bg: "bg-stone-100 dark:bg-stone-800/40",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-blue-500" stroke="currentColor" strokeWidth={1.8}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
+      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-stone-500" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
       </svg>
     ),
-    title: "Audio & Voice",
-    description: "Record live lectures or upload audio files. Every word is captured and summarized.",
+    title: "Plot & Outline Tool",
+    description: "Structure your story before you write it. Or reverse-outline after. Author AI identifies pacing gaps, missing beats, and suggests narrative alternatives.",
   },
   {
-    bg: "bg-emerald-50 dark:bg-emerald-900/20",
+    bg: "bg-[#EDE6D8] dark:bg-[#26333F]",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-emerald-500" stroke="currentColor" strokeWidth={1.8}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
+      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[var(--text-secondary)]" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253M3.284 14.253A8.959 8.959 0 0 1 3 12c0-1.016.135-2.001.386-2.918" />
       </svg>
     ),
-    title: "Photos & Images",
-    description: "Snap a photo of handwritten notes or a textbook page. OCR + AI handles the rest.",
+    title: "Worldbuilding",
+    description: "Capture your world's rules, geography, cultures, and lore in an organized library. The AI cross-references your world notes as you write to keep everything consistent.",
   },
 ];
 
 const showcaseItems = [
   {
     mockup: "/mockup/1.png",
-    label: "Smart Notes",
-    title: "Any content. Instant structured notes.",
+    label: "AI Writing Assistant",
+    title: "Write more. Struggle less. Sound like yourself.",
     description:
-      "Feynman AI reads your material and produces clean, hierarchical notes. No fluff, just the concepts that matter. Works with PDFs, YouTube videos, audio recordings, and photos.",
-    bullets: ["Auto-generated summaries", "Key concept extraction", "Organized by topic"],
+      "Author AI studies your prose style as you draft — the rhythm of your sentences, the words you favor, the way you handle dialogue — then offers suggestions that feel like you on a great day, not a generic AI. Think of it as a collaborator who has read everything you've written and wants to help you say it better.",
+    bullets: ["Context-aware sentence completions", "Tone and style matching", "Scene and chapter continuations"],
   },
   {
     mockup: "/mockup/2.png",
-    label: "Adaptive Quizzes",
-    title: "Test yourself. Find your weak spots.",
+    label: "Character Creator",
+    title: "Characters your readers will remember for years.",
     description:
-      "Multiple-choice and open-ended questions are generated directly from your notes. Every quiz adapts to what you're studying so you never waste time on what you already know.",
-    bullets: ["Auto-generated questions", "Multiple quiz formats", "Instant feedback"],
+      "Every great story lives or dies by its people. The Character Creator guides you through building complete human beings — with conflicting desires, hidden wounds, and believable voices. Reference any character mid-draft with a tap, and let the AI flag when a character acts out of alignment with their own history.",
+    bullets: ["Guided backstory and motivation builder", "Relationship mapping between characters", "In-draft character consistency checks"],
   },
   {
     mockup: "/mockup/3.png",
-    label: "Flashcards",
-    title: "Spaced repetition, built in.",
+    label: "Plot & Outline Tool",
+    title: "Structure that serves your story, not the other way around.",
     description:
-      "Flashcards are created automatically from your study material. The built-in spaced repetition system schedules reviews at the optimal moment for long-term retention.",
-    bullets: ["Auto-created from notes", "Spaced repetition scheduling", "Offline review"],
+      "Whether you outline before you write or only after, Author AI's plot tools meet you where you are. Drag-and-drop story beats, detect pacing issues, and explore alternative narrative paths — all without losing the draft you already have.",
+    bullets: ["Beat-by-beat story mapping", "Pacing and tension analysis", "Alternate plot path suggestions"],
   },
   {
     mockup: "/mockup/4.png",
-    label: "Feynman Technique",
-    title: "Teach it back. Master it for real.",
+    label: "Worldbuilding",
+    title: "A world rich enough that readers forget it isn't real.",
     description:
-      "The most powerful learning technique in the world, built right into the app. Explain a concept in simple words, get AI feedback on gaps, and repeat until you truly understand.",
-    bullets: ["Guided explanation prompts", "AI gap analysis", "Targeted review suggestions"],
+      "Your world has rules. Author AI helps you keep them. Build and organize lore, geography, factions, timelines, and magic systems in a living reference library. As you write, the AI quietly cross-checks your prose against your world notes and flags any contradictions before they become editing nightmares.",
+    bullets: ["Lore and geography library", "Timeline and faction tracking", "Automatic consistency checking"],
   },
 ];
 
 const steps = [
   {
     number: "01",
-    title: "Import Your Content",
-    description: "Add a PDF, paste a YouTube link, record audio, or snap a photo. Any format works.",
+    title: "Tell us about your writing",
+    description:
+      "Share your experience level, your goal (fun, publication, or both), your preferred genres, and your POV preference. Author AI uses this to personalize everything from day one.",
   },
   {
     number: "02",
-    title: "AI Generates Notes",
-    description: "Our AI analyzes your content and produces clean, structured study notes automatically.",
+    title: "Start your project",
+    description:
+      "Create a new story, import an existing draft, or begin with a blank page. Set up your characters, outline your plot, or dive straight into Chapter One — your call.",
   },
   {
     number: "03",
-    title: "Practice & Review",
-    description: "Reinforce what you learned with auto-generated quizzes and spaced-repetition flashcards.",
+    title: "Write with AI at your side",
+    description:
+      "The AI suggests continuations, offers alternatives, flags inconsistencies, and helps you push through blocks — always in service of your story, never replacing your judgment.",
   },
   {
     number: "04",
-    title: "Master with Feynman",
-    description: "Explain concepts in plain words. Get AI feedback on gaps in your understanding.",
+    title: "Refine, revise, and finish",
+    description:
+      "Review your draft with AI-assisted editing, check character and world consistency, and export a clean manuscript. From first sentence to final page.",
   },
 ];
 
 const testimonials = [
   {
-    initials: "EK",
-    name: "Elif K.",
-    role: "Medical Student",
-    text: "I used to spend hours summarizing lecture recordings. Feynman AI does it in seconds and the quizzes are spot on for exam prep.",
+    initials: "MR",
+    name: "Margaret R.",
+    role: "Fantasy novelist, working on her third book",
+    text: "I've tried every writing app on the market. Author AI is the first one that actually understands story structure. The character consistency checking alone has saved me from embarrassing continuity errors twice. It doesn't write my book for me — it helps me write a better one.",
   },
   {
-    initials: "MT",
-    name: "Marcus T.",
-    role: "University Student",
-    text: "The Feynman technique feature is unlike anything I've seen. It forces real understanding instead of just memorization.",
+    initials: "JO",
+    name: "James O.",
+    role: "Thriller writer, published independently",
+    text: "The plot outlining tool changed how I work. I used to spend days reorganizing index cards on my floor. Now I can restructure an entire act in minutes, see where the tension drops, and fix it before I've written a word of the chapter. My books are tighter because of it.",
   },
   {
-    initials: "PS",
-    name: "Priya S.",
-    role: "High School Senior",
-    text: "I paste YouTube lecture links and get a full flashcard deck ready to review. My grades improved a full letter in one semester.",
+    initials: "SN",
+    name: "Sofía N.",
+    role: "Romance author, writing for joy",
+    text: "I write purely for fun, but Author AI makes me feel like a serious writer. The onboarding actually asked about my goals — and when I said 'I just love telling stories,' it adjusted. There's no pressure to be publishable. It just helps me write stories I'm proud of.",
   },
 ];
 
 const faqs = [
   {
-    q: "What content formats are supported?",
-    a: "Feynman AI supports PDF and DOCX documents, MP3/M4A/WAV audio files, JPG/PNG images, and YouTube video URLs. More formats are coming soon.",
+    q: "Is Author AI for beginners or experienced writers?",
+    a: "Both. During onboarding you tell Author AI your experience level — beginner, intermediate, or experienced — and it calibrates its assistance accordingly. Beginners get more guidance and explanation; experienced writers get a collaborator that respects their craft. You can update your preferences any time in settings.",
   },
   {
-    q: "How does the Feynman Technique feature work?",
-    a: "After generating notes on a topic, the app prompts you to explain it in your own simple words. The AI identifies gaps in your understanding and suggests targeted review. It mirrors the classic Feynman learning method.",
+    q: "Does the AI write my book for me?",
+    a: "No — and that's intentional. Author AI is a writing companion, not a ghostwriter. It suggests, it assists, it flags inconsistencies, and it helps you get unstuck. Every word that ends up in your manuscript is a word you chose. Your voice remains yours.",
   },
   {
-    q: "Is there a free plan?",
-    a: "Yes. The free plan includes 10 note imports per month, basic quizzes, and flashcards. Premium unlocks unlimited imports, advanced quiz modes, audio transcription, and priority AI processing.",
+    q: "What genres does Author AI support?",
+    a: "Fantasy, science fiction, romance, thriller, mystery, literary fiction, historical fiction, horror, and more. The AI understands genre conventions — tropes, pacing expectations, reader expectations — and can help you work within them or deliberately subvert them. You select your genres during onboarding and can add more at any time.",
   },
   {
-    q: "Does it work offline?",
-    a: "Note review and flashcard sessions work fully offline. AI generation for new imports requires an internet connection.",
+    q: "How does the subscription work?",
+    a: "Author AI is a subscription-only app, billed monthly or annually through the App Store. There is no free tier — we believe the writing tools we offer are worth paying for, and a subscription model lets us keep improving them without compromise. You can manage or cancel your subscription at any time through your Apple ID settings.",
   },
   {
-    q: "Is my data private?",
-    a: "Your documents and notes are encrypted in transit and at rest. We never use your personal study data to train AI models.",
+    q: "Is my writing private?",
+    a: "Completely. Author AI requires no account and no sign-in. Your drafts, characters, notes, and world-building files are stored entirely on your device and never sent to our servers. We do not use your creative work to train AI models, ever. Your stories belong to you.",
   },
 ];
 
@@ -153,7 +156,7 @@ function Stars({ count = 5 }: { count?: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} viewBox="0 0 20 20" fill="#F59E0B" className="w-4 h-4">
+        <svg key={i} viewBox="0 0 20 20" fill="#B8893A" className="w-4 h-4">
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 0 0 .95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 0 0-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 0 0-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 0 0-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 0 0 .951-.69l1.07-3.292Z" />
         </svg>
       ))}
@@ -164,17 +167,17 @@ function Stars({ count = 5 }: { count?: number }) {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Feynman AI",
+  name: "Author AI",
   operatingSystem: "iOS",
-  applicationCategory: "EducationApplication",
+  applicationCategory: "ProductivityApplication",
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
   },
-  url: "https://getfeynman.app",
+  url: "https://getauthorai.app",
   description:
-    "Turn PDFs, YouTube videos, audio recordings, and photos into smart notes, quizzes, and flashcards. Master any topic with the Feynman Technique.",
+    "Author AI is the AI-powered writing companion for iOS. Draft stories, build characters, outline plots, and construct worlds — all guided by a personalized AI that understands your genre and voice.",
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5",
@@ -184,33 +187,34 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <div className="bg-[#FAFAFA] dark:bg-[#09090B]">
+    <div className="bg-[var(--bg)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
       {/* Navbar */}
-      <header className="sticky top-0 z-50 bg-[#FAFAFA]/80 dark:bg-[#09090B]/80 backdrop-blur-md border-b border-gray-200/60 dark:border-gray-700/60">
+      <header className="sticky top-0 z-50 bg-[var(--bg)]/80 backdrop-blur-md border-b border-[var(--border)]/60">
         <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <Image
-              src="/logo.jpg"
-              alt="Feynman AI"
+              src="/logo.png"
+              alt="Author AI"
               width={32}
               height={32}
-              className="rounded-xl"
+              className="rounded-lg"
             />
-            <span className="font-bold text-gray-900 dark:text-white text-lg tracking-tight">Feynman AI</span>
+            <span className="font-bold text-[var(--text-primary)] text-lg tracking-tight">Author AI</span>
           </div>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-gray-500 dark:text-gray-400 font-medium">
-            <a href="#features" className="hover:text-gray-900 dark:hover:text-white transition-colors">Features</a>
-            <a href="#how-it-works" className="hover:text-gray-900 dark:hover:text-white transition-colors">How it Works</a>
-            <a href="#faq" className="hover:text-gray-900 dark:hover:text-white transition-colors">FAQ</a>
+          <nav className="hidden md:flex items-center gap-8 text-sm text-[var(--text-muted)] font-medium">
+            <a href="#features" className="hover:text-[var(--text-primary)] transition-colors">Features</a>
+            <a href="#how-it-works" className="hover:text-[var(--text-primary)] transition-colors">How it Works</a>
+            <a href="#faq" className="hover:text-[var(--text-primary)] transition-colors">FAQ</a>
           </nav>
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <a href={APP_STORE_URL}>
-              <Image src="/app-store.svg" alt="Download on the App Store" width={130} height={44} />
+              <Image src="/app-store.svg" alt="Download on the App Store" width={130} height={44} className="w-[130px] h-[44px]" />
             </a>
           </div>
         </div>
@@ -218,20 +222,22 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative overflow-hidden px-6 pt-24 pb-28 md:pt-32 md:pb-36">
-        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-blue-100/50 dark:bg-blue-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-100/30 dark:bg-blue-900/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[#F2E6CA]/60 dark:bg-[#B8893A]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#EDE6D8]/50 dark:bg-[#B8893A]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3 pointer-events-none" />
         <div className="relative mx-auto max-w-6xl flex flex-col md:flex-row items-center gap-16 md:gap-12">
           <div className="flex-1 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-900/30 text-[#0088FE] text-sm font-semibold px-4 py-2 rounded-full mb-7 border border-blue-100 dark:border-blue-800">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0088FE]" />
-              AI-Powered Study Tool
+            <div className="inline-flex items-center gap-2 bg-[var(--accent-tint)] dark:bg-[#2A2218] text-[var(--accent)] text-sm font-semibold px-4 py-2 rounded-full mb-7 border border-[var(--color-line2)]">
+              <span className="text-base leading-none">✦</span>
+              AI-Powered Writing for iOS
             </div>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-[1.1] tracking-tight mb-6">
-              Turn Anything Into{" "}
-              <span className="text-[#0088FE]">Deep Knowledge</span>
+            <h1 className="text-5xl md:text-6xl font-bold text-[var(--text-primary)] leading-[1.1] tracking-tight mb-6">
+              Your Story,{" "}
+              <br />
+              Written{" "}
+              <span className="text-[var(--accent)]">Brilliantly.</span>
             </h1>
-            <p className="text-xl text-gray-500 dark:text-gray-400 leading-relaxed mb-10 max-w-lg mx-auto md:mx-0">
-              Import PDFs, YouTube videos, audio recordings, or photos. Feynman AI generates smart notes, quizzes, and flashcards. Then helps you truly master any topic.
+            <p className="text-xl text-[var(--text-muted)] leading-relaxed mb-10 max-w-lg mx-auto md:mx-0">
+              Author AI is the writing companion that thinks with you. Not for you. Draft chapters, build unforgettable characters, map your plot, and shape entire worlds. All in one iOS app, tailored to your genre and voice.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-5 justify-center md:justify-start">
               <a href={APP_STORE_URL}>
@@ -240,52 +246,53 @@ export default function Home() {
                   alt="Download on the App Store"
                   width={160}
                   height={54}
+                  className="w-[160px] h-[54px]"
                 />
               </a>
-              <div className="flex items-center gap-3 text-gray-400 text-sm">
+              <div className="flex items-center gap-3 text-sm">
                 <Stars />
-                <span className="font-medium text-gray-600 dark:text-gray-300">Free to start</span>
+                <span className="font-medium text-[var(--text-secondary)]">Subscription · iOS 16+</span>
               </div>
             </div>
           </div>
           <div className="flex-shrink-0">
             <Image
               src="/mockup/0.png"
-              alt="Feynman AI app screenshot"
+              alt="Author AI app screenshot"
               width={260}
               height={532}
-              className="drop-shadow-2xl"
+              className="drop-shadow-2xl w-[260px] h-[532px]"
               priority
             />
           </div>
         </div>
       </section>
 
-      {/* Input Sources */}
-      <section id="features" className="px-6 py-24 bg-white dark:bg-gray-900">
+      {/* Feature Cards */}
+      <section id="features" className="px-6 py-24 bg-[var(--bg-alt)]">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-16">
-            <p className="text-[#0088FE] text-sm font-bold uppercase tracking-widest mb-3">
-              Any Format, Instantly
+            <p className="text-[var(--accent-deep)] text-sm font-bold uppercase tracking-widest mb-3">
+              Every tool a writer needs
             </p>
-            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
-              Import from anywhere
+            <h2 className="text-4xl font-bold text-[var(--text-primary)] tracking-tight">
+              From first idea to final page
             </h2>
-            <p className="mt-4 text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
-              No matter how your course material is delivered, Feynman AI can process it.
+            <p className="mt-4 text-lg text-[var(--text-muted)] max-w-xl mx-auto">
+              Author AI brings together AI assistance, creative structure, and your unique vision into one seamless workflow.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {inputSources.map((s) => (
+            {writingTools.map((tool) => (
               <div
-                key={s.title}
-                className="bg-[#FAFAFA] dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700"
+                key={tool.title}
+                className="bg-[var(--bg)] rounded-2xl p-6 border border-[var(--border)]"
               >
-                <div className={`w-12 h-12 ${s.bg} rounded-xl flex items-center justify-center mb-4`}>
-                  {s.icon}
+                <div className={`w-12 h-12 ${tool.bg} rounded-xl flex items-center justify-center mb-4`}>
+                  {tool.icon}
                 </div>
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2">{s.title}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{s.description}</p>
+                <h3 className="font-bold text-[var(--text-primary)] mb-2">{tool.title}</h3>
+                <p className="text-sm text-[var(--text-muted)] leading-relaxed">{tool.description}</p>
               </div>
             ))}
           </div>
@@ -293,7 +300,7 @@ export default function Home() {
       </section>
 
       {/* Showcase */}
-      <section className="px-6 py-24 dark:bg-[#09090B]">
+      <section className="px-6 py-24 bg-[var(--bg)]">
         <div className="mx-auto max-w-5xl space-y-28">
           {showcaseItems.map((item, i) => (
             <div
@@ -308,28 +315,28 @@ export default function Home() {
                   alt={item.label}
                   width={240}
                   height={490}
-                  className="drop-shadow-xl"
+                  className="drop-shadow-xl w-[240px] h-[490px]"
                 />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <p className="text-[#0088FE] text-sm font-bold uppercase tracking-widest mb-3">
+                <p className="text-[var(--accent)] text-sm font-bold uppercase tracking-widest mb-3">
                   {item.label}
                 </p>
-                <h3 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-4 leading-tight">
+                <h3 className="text-3xl font-bold text-[var(--text-primary)] tracking-tight mb-4 leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 max-w-md mx-auto md:mx-0">
+                <p className="text-[var(--text-muted)] leading-relaxed mb-6 max-w-md mx-auto md:mx-0">
                   {item.description}
                 </p>
                 <ul className="space-y-2">
                   {item.bullets.map((b) => (
                     <li key={b} className="flex items-center gap-2.5 justify-center md:justify-start">
-                      <div className="w-5 h-5 bg-blue-50 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg viewBox="0 0 16 16" fill="none" className="w-3 h-3 text-[#0088FE]" stroke="currentColor" strokeWidth={2.5}>
+                      <div className="w-5 h-5 bg-[var(--accent-tint)] dark:bg-[#2A2218] rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg viewBox="0 0 16 16" fill="none" className="w-3 h-3 text-[var(--accent)]" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M2.5 8l4 4 7-7" />
                         </svg>
                       </div>
-                      <span className="text-sm text-gray-600 dark:text-gray-300 font-medium">{b}</span>
+                      <span className="text-sm text-[var(--text-secondary)] font-medium">{b}</span>
                     </li>
                   ))}
                 </ul>
@@ -339,36 +346,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Feynman Technique Highlight */}
-      <section className="px-6 py-24 bg-[#0088FE] overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+      {/* Accent Banner — Personalization */}
+      <section className="px-6 py-24 bg-[#1F2A37] overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#B8893A]/8 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#B8893A]/6 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
         <div className="relative mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center gap-2 bg-white/15 text-white text-sm font-semibold px-4 py-2 rounded-full mb-7 border border-white/20">
-            <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
-            </svg>
-            The Feynman Technique
+          <div className="inline-flex items-center gap-2 bg-white/10 text-[#F2E6CA] text-sm font-semibold px-4 py-2 rounded-full mb-7 border border-white/15">
+            <span className="text-base leading-none">✦</span>
+            Personalized to your writing
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
-            Don&apos;t just memorize.{" "}
-            <span className="text-blue-200">Truly understand.</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
+            An AI that reads the room.{" "}
+            <br />
+            <span className="text-[#B8893A]">Every room in your story.</span>
           </h2>
-          <p className="text-xl text-blue-200 leading-relaxed max-w-2xl mx-auto mb-10">
-            Named after Nobel laureate Richard Feynman. If you can&apos;t explain it simply, you don&apos;t understand it yet. Feynman AI guides you through this process, identifies gaps, and gets you to true mastery.
+          <p className="text-xl text-[#C9BEA6] leading-relaxed max-w-2xl mx-auto mb-10">
+            When you first open Author AI, you tell it a little about yourself: your experience level, whether you write for the joy of it or with publishing in mind, your favorite genres, your preferred point of view. From that moment, every suggestion, every nudge, every generated line is calibrated to you — not a template of what writing should look like, but what <em>your</em> writing should look like.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
             {[
-              { step: "1", title: "Study the notes", desc: "Review the AI-generated summary of your material." },
-              { step: "2", title: "Explain it simply", desc: "Describe the concept as if teaching a complete beginner." },
-              { step: "3", title: "Fill the gaps", desc: "AI pinpoints weak areas and guides targeted review." },
-            ].map((item) => (
-              <div key={item.step} className="bg-white/10 rounded-2xl p-5 border border-white/15">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-white font-bold text-sm mb-3">
-                  {item.step}
+              {
+                title: "Tailored to your genre",
+                desc: "Fantasy, thriller, romance, literary fiction — the AI understands genre conventions and helps you work with them or deliberately against them.",
+              },
+              {
+                title: "Matched to your ambition",
+                desc: "Writing for fun, aiming for publication, or somewhere between — Author AI adjusts the depth and rigor of its assistance to match your goals.",
+              },
+              {
+                title: "Grows with your voice",
+                desc: "The more you write in Author AI, the better it understands your style. It doesn't flatten you into generic prose — it amplifies what makes your writing yours.",
+              },
+            ].map((card) => (
+              <div key={card.title} className="bg-white/8 rounded-2xl p-5 border border-white/10">
+                <div className="w-8 h-8 bg-[#B8893A]/20 rounded-lg flex items-center justify-center text-[#B8893A] font-bold text-sm mb-3">
+                  ✦
                 </div>
-                <h3 className="text-white font-bold mb-1.5">{item.title}</h3>
-                <p className="text-blue-200 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-white font-bold mb-1.5">{card.title}</h3>
+                <p className="text-[#C9BEA6] text-sm leading-relaxed">{card.desc}</p>
               </div>
             ))}
           </div>
@@ -376,24 +391,24 @@ export default function Home() {
       </section>
 
       {/* How it Works */}
-      <section id="how-it-works" className="px-6 py-24 bg-white dark:bg-gray-900">
+      <section id="how-it-works" className="px-6 py-24 bg-[var(--bg-alt)]">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-16">
-            <p className="text-[#0088FE] text-sm font-bold uppercase tracking-widest mb-3">
-              Simple & Fast
+            <p className="text-[var(--accent-deep)] text-sm font-bold uppercase tracking-widest mb-3">
+              Simple by design
             </p>
-            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
-              How it works
+            <h2 className="text-4xl font-bold text-[var(--text-primary)] tracking-tight">
+              How Author AI works
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((s) => (
-              <div key={s.number} className="bg-[#FAFAFA] dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-                <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-5">
-                  <span className="text-[#0088FE] font-extrabold text-sm">{s.number}</span>
+              <div key={s.number} className="bg-[var(--bg)] rounded-2xl p-6 border border-[var(--border)]">
+                <div className="w-12 h-12 bg-[var(--accent-tint)] dark:bg-[#2A2218] rounded-xl flex items-center justify-center mb-5">
+                  <span className="text-[var(--accent)] font-bold text-sm">{s.number}</span>
                 </div>
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2">{s.title}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{s.description}</p>
+                <h3 className="font-bold text-[var(--text-primary)] mb-2">{s.title}</h3>
+                <p className="text-sm text-[var(--text-muted)] leading-relaxed">{s.description}</p>
               </div>
             ))}
           </div>
@@ -401,31 +416,31 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="px-6 py-24 dark:bg-[#09090B]">
+      <section className="px-6 py-24 bg-[var(--bg)]">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-16">
-            <p className="text-[#0088FE] text-sm font-bold uppercase tracking-widest mb-3">
-              Student Reviews
+            <p className="text-[var(--accent-deep)] text-sm font-bold uppercase tracking-widest mb-3">
+              Writer Reviews
             </p>
-            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
-              Loved by learners worldwide
+            <h2 className="text-4xl font-bold text-[var(--text-primary)] tracking-tight">
+              From writers who take their craft seriously.
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((t) => (
               <div
                 key={t.name}
-                className="bg-white dark:bg-gray-800 rounded-2xl p-7 border border-gray-100 dark:border-gray-700 flex flex-col gap-4"
+                className="bg-[var(--bg-alt)] rounded-2xl p-7 border border-[var(--border)] flex flex-col gap-4"
               >
                 <Stars />
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed flex-1">&ldquo;{t.text}&rdquo;</p>
-                <div className="flex items-center gap-3 pt-2 border-t border-gray-100 dark:border-gray-700">
-                  <div className="w-9 h-9 bg-blue-50 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-[#0088FE] font-bold text-xs border border-blue-100 dark:border-blue-800">
+                <p className="text-[var(--text-secondary)] leading-relaxed flex-1">&ldquo;{t.text}&rdquo;</p>
+                <div className="flex items-center gap-3 pt-2 border-t border-[var(--border)]">
+                  <div className="w-9 h-9 bg-[var(--accent-tint)] dark:bg-[#2A2218] rounded-full flex items-center justify-center text-[var(--accent)] font-bold text-xs border border-[var(--border-strong)]">
                     {t.initials}
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900 dark:text-white text-sm">{t.name}</div>
-                    <div className="text-xs text-gray-400 dark:text-gray-500">{t.role}</div>
+                    <div className="font-semibold text-[var(--text-primary)] text-sm">{t.name}</div>
+                    <div className="text-xs text-[var(--text-muted)]">{t.role}</div>
                   </div>
                 </div>
               </div>
@@ -435,33 +450,33 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="px-6 py-24 bg-white dark:bg-gray-900">
+      <section id="faq" className="px-6 py-24 bg-[var(--bg-alt)]">
         <div className="mx-auto max-w-2xl">
           <div className="text-center mb-14">
-            <p className="text-[#0088FE] text-sm font-bold uppercase tracking-widest mb-3">FAQ</p>
-            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
-              Common questions
+            <p className="text-[var(--accent-deep)] text-sm font-bold uppercase tracking-widest mb-3">FAQ</p>
+            <h2 className="text-4xl font-bold text-[var(--text-primary)] tracking-tight">
+              Questions from writers like you.
             </h2>
           </div>
           <div className="space-y-3">
             {faqs.map((faq) => (
               <details
                 key={faq.q}
-                className="group bg-[#FAFAFA] dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden"
+                className="group bg-[var(--bg)] rounded-2xl border border-[var(--border)] overflow-hidden"
               >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer select-none list-none font-semibold text-gray-900 dark:text-white hover:text-[#0088FE] dark:hover:text-[#0088FE] transition-colors">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer select-none list-none font-semibold text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors">
                   {faq.q}
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="w-5 h-5 text-gray-400 dark:text-gray-500 group-open:rotate-180 transition-transform flex-shrink-0"
+                    className="w-5 h-5 text-[var(--text-muted)] group-open:rotate-180 transition-transform flex-shrink-0"
                     stroke="currentColor"
                     strokeWidth={2}
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                   </svg>
                 </summary>
-                <div className="px-6 pb-5 text-gray-500 dark:text-gray-400 leading-relaxed text-[15px]">{faq.a}</div>
+                <div className="px-6 pb-5 text-[var(--text-muted)] leading-relaxed text-[15px]">{faq.a}</div>
               </details>
             ))}
           </div>
@@ -469,23 +484,23 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 py-24 dark:bg-[#09090B]">
+      <section className="px-6 py-24 bg-[var(--bg)]">
         <div className="mx-auto max-w-2xl text-center">
-          <div className="bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-700 p-12 relative overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-blue-50/80 dark:bg-blue-900/20 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
+          <div className="bg-[var(--bg-alt)] rounded-3xl border border-[var(--border)] p-12 relative overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-[var(--accent-tint)]/60 dark:bg-[#B8893A]/10 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
             <div className="relative">
               <Image
-                src="/logo.jpg"
-                alt="Feynman AI"
+                src="/logo.png"
+                alt="Author AI"
                 width={64}
                 height={64}
                 className="rounded-2xl mx-auto mb-6"
               />
-              <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-4 tracking-tight">
-                Start learning smarter today
+              <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4 tracking-tight">
+                Begin the story only you can write.
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-8 max-w-md mx-auto">
-                Join thousands of students who have already transformed the way they study. Free to start. No credit card required.
+              <p className="text-[var(--text-muted)] leading-relaxed mb-8 max-w-md mx-auto">
+                Author AI is the iOS writing companion built for storytellers who take their craft seriously. Whether you write for the pure love of it or with publication in your sights. Download today and meet the AI that writes alongside you, not instead of you.
               </p>
               <div className="flex justify-center">
                 <a href={APP_STORE_URL}>
@@ -494,28 +509,29 @@ export default function Home() {
                     alt="Download on the App Store"
                     width={160}
                     height={54}
+                    className="w-[160px] h-[54px]"
                   />
                 </a>
               </div>
-              <p className="mt-5 text-sm text-gray-400 dark:text-gray-500">Free plan · No credit card · iOS 16+</p>
+              <p className="mt-5 text-sm text-[var(--text-muted)]">Subscription · iOS 16+ · Cancel anytime</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 px-6 py-10">
+      <footer className="bg-[var(--bg-alt)] border-t border-[var(--border)] px-6 py-10">
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
-            <Image src="/logo.jpg" alt="Feynman AI" width={28} height={28} className="rounded-lg" />
-            <span className="font-bold text-gray-900 dark:text-white">Feynman AI</span>
+            <Image src="/logo.png" alt="Author AI" width={28} height={28} className="rounded-lg" />
+            <span className="font-bold text-[var(--text-primary)]">Author AI</span>
           </div>
-          <div className="flex items-center gap-6 text-sm text-gray-400 dark:text-gray-500">
-            <a href="/privacy" className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">Privacy Policy</a>
-            <a href="/terms" className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">Terms of Use</a>
-            <a href="/support" className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">Support</a>
+          <div className="flex items-center gap-6 text-sm text-[var(--text-muted)]">
+            <a href="/privacy" className="hover:text-[var(--text-secondary)] transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-[var(--text-secondary)] transition-colors">Terms of Use</a>
+            <a href="/support" className="hover:text-[var(--text-secondary)] transition-colors">Support</a>
           </div>
-          <p className="text-sm text-gray-400 dark:text-gray-500">© {new Date().getFullYear()} Feynman AI. All rights reserved.</p>
+          <p className="text-sm text-[var(--text-muted)]">© {new Date().getFullYear()} Author AI. All rights reserved.</p>
         </div>
       </footer>
     </div>

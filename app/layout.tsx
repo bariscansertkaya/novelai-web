@@ -1,60 +1,68 @@
 export const runtime = "edge";
 
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({
-  variable: "--font-geist-sans",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  axes: ["opsz", "SOFT", "WONK"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://getfeynman.app"),
-  title: "Feynman AI — Study Smarter, Not Harder",
+  metadataBase: new URL("https://getauthorai.app"),
+  title: "Author AI — Write Your Story, Powered by AI",
   description:
-    "Turn PDFs, YouTube videos, audio recordings, and photos into smart notes, quizzes, and flashcards. Master any topic with the Feynman Technique.",
+    "Author AI is the iOS writing companion built for storytellers. AI-assisted drafting, character creation, plot outlining, and worldbuilding — all in one beautiful app.",
   keywords: [
-    "AI study app",
-    "Feynman technique",
-    "smart notes",
-    "flashcards",
-    "quizzes",
-    "PDF summarizer",
-    "YouTube notes",
-    "spaced repetition",
-    "study tool",
-    "AI learning",
+    "AI writing app",
+    "story writing iOS",
+    "book writing assistant",
+    "novel writing app",
+    "character creator",
+    "worldbuilding app",
+    "fiction writing AI",
+    "plot outline generator",
+    "creative writing assistant",
+    "AI author tool",
   ],
-  authors: [{ name: "Feynman AI" }],
+  authors: [{ name: "Author AI" }],
   robots: { index: true, follow: true },
   icons: {
-    icon: "/logo.jpg",
-    apple: "/logo.jpg",
+    icon: "/logo.png",
+    apple: "/logo.png",
   },
   openGraph: {
-    title: "Feynman AI — Study Smarter, Not Harder",
+    title: "Author AI — Write Your Story, Powered by AI",
     description:
-      "Turn PDFs, YouTube videos, audio recordings, and photos into smart notes, quizzes, and flashcards. Master any topic with the Feynman Technique.",
-    url: "https://getfeynman.app",
-    siteName: "Feynman AI",
+      "The iOS writing companion for storytellers. AI-assisted drafting, character creation, plot outlining, and worldbuilding.",
+    url: "https://getauthorai.app",
+    siteName: "Author AI",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "/logo.jpg",
-        width: 512,
-        height: 512,
-        alt: "Feynman AI — AI-Powered Study Tool",
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Author AI — AI-Powered Writing App",
       },
     ],
   },
   twitter: {
-    card: "summary",
-    title: "Feynman AI — Study Smarter, Not Harder",
+    card: "summary_large_image",
+    title: "Author AI — Write Your Story, Powered by AI",
     description:
-      "Turn PDFs, YouTube videos, audio recordings, and photos into smart notes, quizzes, and flashcards.",
-    images: ["/logo.jpg"],
+      "The iOS writing companion for storytellers. AI-assisted drafting, character creation, plot outlining, and worldbuilding.",
+    images: ["/og.jpg"],
   },
 };
 
@@ -64,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geist.variable} h-full`} suppressHydrationWarning>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable} h-full`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
