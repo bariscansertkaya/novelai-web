@@ -63,22 +63,6 @@ const showcaseItems = [
       "Every great story lives or dies by its people. The Character Creator guides you through building complete human beings — with conflicting desires, hidden wounds, and believable voices. Reference any character mid-draft with a tap, and let the AI flag when a character acts out of alignment with their own history.",
     bullets: ["Guided backstory and motivation builder", "Relationship mapping between characters", "In-draft character consistency checks"],
   },
-  {
-    mockup: "/mockup/3.png",
-    label: "Plot & Outline Tool",
-    title: "Structure that serves your story, not the other way around.",
-    description:
-      "Whether you outline before you write or only after, Author AI's plot tools meet you where you are. Drag-and-drop story beats, detect pacing issues, and explore alternative narrative paths — all without losing the draft you already have.",
-    bullets: ["Beat-by-beat story mapping", "Pacing and tension analysis", "Alternate plot path suggestions"],
-  },
-  {
-    mockup: "/mockup/4.png",
-    label: "Worldbuilding",
-    title: "A world rich enough that readers forget it isn't real.",
-    description:
-      "Your world has rules. Author AI helps you keep them. Build and organize lore, geography, factions, timelines, and magic systems in a living reference library. As you write, the AI quietly cross-checks your prose against your world notes and flags any contradictions before they become editing nightmares.",
-    bullets: ["Lore and geography library", "Timeline and faction tracking", "Automatic consistency checking"],
-  },
 ];
 
 const steps = [
